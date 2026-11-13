@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>作品集 · Portfolio</title>
+<meta name="description" content="个人成果展示" />
+<meta name="theme-color" content="#05070d" />
+<link rel="canonical" href="https://zzj903.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://zzj903.github.io/" />
+<meta property="og:title" content="个人作品集" />
+<meta property="og:description" content="个人成果展示" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0f1a'/%3E%3Cpath d='M28 68V32h12l20 24V32h12v36H60L40 44v24z' fill='%236f97ff'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ===== 背景层 ===== -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow--1"></div>
+  <div class="bg-glow bg-glow--2"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-noise"></div>
+</div>
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+<!-- ===== 导航 ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text" id="brandText">Portfolio</span>
+    </a>
+
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#works">成果</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+    </nav>
+
+    <button class="btn btn-ghost nav-cta" id="openPanel" type="button">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 5v14M5 12h14" />
+      </svg>
+      <span>上传 / 管理</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow reveal">
+        <span class="dot"></span>
+        <span id="heroRole">PORTFOLIO</span>
+      </p>
+
+      <h1 class="hero-title reveal" id="heroName">你的名字</h1>
+
+      <p class="hero-tagline reveal" id="heroTagline">把想法做成能用的东西。</p>
+
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#works">
+          看作品
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button class="btn btn-ghost" type="button" id="openPanelHero">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M8 8l4-4 4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          上传新成果
+        </button>
+      </div>
+
+      <dl class="hero-stats reveal" id="heroStats">
+        <div class="stat"><dt>收录成果</dt><dd id="statWorks">0</dd></div>
+        <div class="stat"><dt>分类</dt><dd id="statCats">0</dd></div>
+        <div class="stat"><dt>最近更新</dt><dd id="statUpdated">—</dd></div>
+        <div class="stat stat--loc"><dt>坐标</dt><dd id="statLoc">—</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== 作品 ===== -->
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="section-index">01 / WORKS</p>
+          <h2 class="section-title">成果</h2>
+        </div>
+        <p class="section-desc">按分类筛选，点击卡片查看详情或跳转。</p>
+      </div>
+
+      <div class="filters" id="filters" role="tablist" aria-label="分类筛选"></div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>这个分类下还没有内容。</p>
+    </div>
+  </section>
+
+  <!-- ===== 关于 ===== -->
+  <section class="section" id="about">
+    <div class="wrap about">
+      <div class="about-main">
+        <p class="section-index">02 / ABOUT</p>
+        <h2 class="section-title">关于</h2>
+        <div class="about-text" id="aboutText"></div>
+      </div>
+      <aside class="about-side">
+        <h3 class="mini-title">技能</h3>
+        <ul class="skills" id="skills"></ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== 联系 ===== -->
+  <section class="section section--contact" id="contact">
+    <div class="wrap contact">
+      <p class="section-index">03 / CONTACT</p>
+      <h2 class="contact-title">有想法，聊聊。</h2>
+      <a class="mail" id="mailLink" href="mailto:hello@example.com"><span id="mailText">hello@example.com</span></a>
+      <ul class="links" id="links"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span id="footerName">Portfolio</span>
+    <span class="footer-dot">·</span>
+    <span>Built with plain HTML · Hosted on GitHub Pages</span>
+  </div>
+</footer>
+
+<!-- ===== 遮罩 + 管理面板 ===== -->
+<div class="scrim" id="scrim"></div>
+
+<aside class="panel" id="panel" aria-hidden="true" aria-label="内容管理">
+  <div class="panel-head">
+    <div>
+      <p class="eyebrow"><span class="dot"></span>CONTROL</p>
+      <h2>内容管理</h2>
+    </div>
+    <button class="icon-btn" id="closePanel" type="button" aria-label="关闭">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <div class="panel-tabs" role="tablist">
+    <button type="button" data-tab="upload" class="is-active">上传文件</button>
+    <button type="button" data-tab="edit">新增作品</button>
+    <button type="button" data-tab="list">已发布</button>
+    <button type="button" data-tab="conn">连接仓库</button>
+  </div>
+
+  <div class="panel-body">
+
+    <!-- 上传 -->
+    <section class="pane is-active" data-pane="upload">
+      <p class="hint" id="connHint"></p>
+
+      <div class="drop" id="drop">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M8 8l4-4 4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        <strong>拖入文件，或点击选择</strong>
+        <span>图片 / PDF / 压缩包，单个不超过 10MB</span>
+        <input type="file" id="fileInput" multiple hidden />
+      </div>
+
+      <ul class="upload-list" id="uploadList"></ul>
+
+      <div class="divider"><span>或</span></div>
+
+      <p class="hint">不想连仓库？也可以把作品信息保存成文件，手动拖到 GitHub 网页上。</p>
+      <button class="btn btn-ghost btn-block" type="button" id="downloadWorks">下载 works.js</button>
+    </section>
+
+    <!-- 新增/编辑 -->
+    <section class="pane" data-pane="edit">
+      <form id="workForm" class="form" autocomplete="off">
+        <input type="hidden" id="f-id" />
+        <label>标题 <span class="req">*</span>
+          <input id="f-title" type="text" required placeholder="例如：数据看板重设计" />
+        </label>
+        <div class="row">
+          <label>分类
+            <input id="f-category" type="text" list="catList" placeholder="项目" />
+            <datalist id="catList"></datalist>
+          </label>
+          <label>年份
+            <input id="f-year" type="text" placeholder="2025" inputmode="numeric" />
+          </label>
+        </div>
+        <label>简介 <span class="req">*</span>
+          <textarea id="f-desc" rows="3" required placeholder="一两句话说明它是什么、解决了什么问题"></textarea>
+        </label>
+        <label>标签
+          <input id="f-tags" type="text" placeholder="React, 可视化（用逗号分隔）" />
+        </label>
+        <label>链接
+          <input id="f-url" type="url" placeholder="https://（可留空）" />
+        </label>
+        <label>封面图
+          <input id="f-cover" type="text" placeholder="留空则自动生成渐变封面" />
+        </label>
+        <label class="check">
+          <input id="f-featured" type="checkbox" /> 置顶显示
+        </label>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" id="saveWork">保存并发布</button>
+          <button class="btn btn-ghost" type="button" id="resetForm">清空</button>
+        </div>
+        <p class="status" id="formStatus"></p>
+      </form>
+    </section>
+
+    <!-- 已发布 -->
+    <section class="pane" data-pane="list">
+      <ul class="work-list" id="workList"></ul>
+    </section>
+
+    <!-- 连接 -->
+    <section class="pane" data-pane="conn">
+      <div class="form">
+        <div class="row">
+          <label>GitHub 用户名
+            <input id="c-owner" type="text" placeholder="yourname" />
+          </label>
+          <label>仓库名
+            <input id="c-repo" type="text" placeholder="yourname.github.io" />
+          </label>
+        </div>
+        <label>分支
+          <input id="c-branch" type="text" placeholder="main" />
+        </label>
+        <label>访问令牌 Token
+          <input id="c-token" type="password" placeholder="github_pat_..." />
+        </label>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="button" id="saveConn">保存连接</button>
+          <button class="btn btn-ghost" type="button" id="testConn">测试</button>
+        </div>
+        <p class="status" id="connStatus"></p>
+      </div>
+
+      <div class="note">
+        <h4>方案 A · Fine-grained Token（推荐）</h4>
+        <p class="note-lead">只授权这一个仓库，最安全。</p>
+        <ol>
+          <li>打开 <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">创建 Fine-grained token ↗</a></li>
+          <li>Token name 随便填，Expiration 选一个过期时间</li>
+          <li><b>Repository access</b> 选 <b>Only select repositories</b> → 下拉里勾选 <b>zzj903.github.io</b></li>
+          <li><b>Permissions 是折叠的，要先点一下展开</b>（页面上写着 Permissions，右边有箭头）→ 进入 <b>Repository permissions</b></li>
+          <li>在列表里找到 <b>Contents</b>，右侧下拉改成 <b>Read and write</b>（其余保持 No access）</li>
+          <li>拉到页面底部点 <b>Generate token</b>，复制 <code>github_pat_</code> 开头的一整串</li>
+        </ol>
+
+        <p class="hint-inline">
+          <b>找不到 Permissions？</b>99% 是因为还没勾选仓库。必须先在第 3 步把仓库勾上，
+          Permissions 区域才会出现可编辑的权限列表；它默认是折叠状态，点标题才能展开。
+          中文界面叫「权限 → 仓库权限 → 内容 → 读取和写入」。
+        </p>
+
+        <details class="note-details">
+          <summary>方案 B · Classic Token（更省事，权限更大）</summary>
+          <ol>
+            <li>打开 <a href="https://github.com/settings/tokens/new?scopes=repo&amp;description=portfolio" target="_blank" rel="noopener">创建 Classic token ↗</a>（链接已自动勾好 repo）</li>
+            <li>Note 随便填，Expiration 可设为 No expiration</li>
+            <li>确认 <b>Select scopes</b> 里只勾了最上面的 <b>repo</b>，其余不勾</li>
+            <li>页面底部点 <b>Generate token</b>，复制 <code>ghp_</code> 开头的一整串</li>
+          </ol>
+          <p class="warn">Classic token 没有「Repository permissions」这一项，只有 scopes 勾选框，因此不需要设 Contents。它对你账号下所有仓库都有写权限，泄露风险比方案 A 大。</p>
+        </details>
+
+        <p class="warn">Token 只保存在你这台电脑的浏览器里（localStorage），不会上传到任何服务器。但请不要在公共电脑上保存。</p>
+      </div>
+    </section>
+
+  </div>
+</aside>
+
+<script src="data/site.js"></script>
+<script src="data/works.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>
