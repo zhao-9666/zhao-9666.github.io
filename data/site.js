@@ -21,13 +21,13 @@ window.SITE = {
     "我做产品设计和技术实现之间的事：把模糊的需求拆成清晰的界面，再把它真正跑起来。\n这里放我做过的一些项目、写过的文章，以及偶尔的设计练习。",
 
   // 联系方式
-  email: "hello@example.com",
+  email: "2773550204@qq.com",
   location: "中国 · 苏州",
 
   // 社交链接（label 是显示文字，url 是地址，支持 mailto:）
   links: [
     { label: "GitHub", url: "https://github.com/zhao-9666" },
-    { label: "邮箱", url: "mailto:hello@example.com" }
+    { label: "邮箱", url: "mailto:2773550204@qq.com" }
   ],
 
   // 技能 / 标签，留空数组就不显示这一块
